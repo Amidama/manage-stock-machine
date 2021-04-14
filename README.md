@@ -60,3 +60,17 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+# Step by Step
+
+## Create Web Application by Laravel
+1. Download composer.phar file from https://getcomposer.org/ (2.0.21 version)
+2. run ```php composer.phar create-project laravel/laravel example-app``` for create web application
+
+## Make Authenication
+1. move composer.phar to your repository and run 
+  ```
+  php composer.phar require laravel/ui
+  php artisan ui vue --auth\
+  npm install && npm run dev
+  ```
