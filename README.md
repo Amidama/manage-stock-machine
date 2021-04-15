@@ -74,3 +74,9 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
   php artisan ui vue --auth\
   npm install && npm run dev
   ```
+
+## Make Admin
+1. run ```php artisan make:middleware IsAdmin``` for create authenication for admin
+2. run ```php artisan make:seeder CreateUsersSeeder``` for create admin permission
+
+ 
