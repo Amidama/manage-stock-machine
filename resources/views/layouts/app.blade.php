@@ -46,11 +46,6 @@
                                 </li>
                             @endif
                             
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -58,15 +53,18 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+                                  @if (Auth::user()->is_admin == 1)
+                                    <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register New User') }}</a>
+                                  @endif
+                                  <a class="dropdown-item" href="{{ route('logout') }}"
+                                      onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                      {{ __('Logout') }}
+                                  </a>
+                                  
+                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                      @csrf
+                                  </form>
                                 </div>
                             </li>
                         @endguest
