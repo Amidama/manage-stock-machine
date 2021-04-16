@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
+                <div class="card-body" style="text-align: center;">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -17,6 +17,7 @@
                     {{ __('You are Admin!') }}
                     <br/>
                     <div class="content-center">
+                      <!-- <a href="{{ route('register') }}" type="button" class="btn btn-info margin-button">Register new user</a> -->
                       <a href="{{ route('tool.index') }}" type="button" class="btn btn-info margin-button">Remaining tool list</a>
                       <a href="{{ route('order.index') }}" type="button" class="btn btn-info margin-button">Logging</a>
                     </div>
