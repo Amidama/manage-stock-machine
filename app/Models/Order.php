@@ -9,6 +9,10 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+      'tool_id', 'amount', 'status'
+    ];
+
     public function tool()
     {
       return $this->belongsTo('App\Models\Tool');

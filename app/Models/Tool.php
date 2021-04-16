@@ -11,5 +11,5 @@ class Tool extends Model
 
     protected $fillable = [
       'name', 'amount', 'unit'
-  ];
+    ];
 }

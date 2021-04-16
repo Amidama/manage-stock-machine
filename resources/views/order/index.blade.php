@@ -21,8 +21,7 @@
                             <th scope="col">Tool ID</th>
                             <th scope="col">Tool Name</th>
                             <th scope="col">Amount</th>
-                            <th scope="col">วันที่ยืม</th>
-                            <th scope="col">วันที่คืน</th>
+                            <th scope="col">Status</th>
                             <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -33,8 +32,7 @@
                             <td scope="row">{{$order->tool()->first()->id}}</td>
                             <td scope="row">{{$order->tool()->first()->name}}</td>
                             <td scope="row">{{$order->amount}}</td>
-                            <td scope="row">{{$order->started_at}}</td>
-                            <td scope="row">{{empty($order->ended_at) ? 'ยังไม่ได้คืน' : $order->ended_at}}</td>
+                            <td scope="row">{{$order->status == 'rent' ? 'ยืม' : 'คืน'}}</td>
                             <td>
                                 <form action="{{route('order.destroy')}}" method="post">
                                     @csrf
@@ -53,8 +51,7 @@
                             <th scope="col">Tool ID</th>
                             <th scope="col">Tool Name</th>
                             <th scope="col">Amount</th>
-                            <th scope="col">วันที่ยืม</th>
-                            <th scope="col">วันที่คืน</th>
+                            <th scope="col">Status</th>
                             <th scope="col">Action</th>
                             </tr>
                         </tfoot>
