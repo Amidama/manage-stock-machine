@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
       [
         'tool_id' => Tool::all()->first()->id,
         'amount' => 10,
-        'status' => 'rent'
+        'status' => 'stock_in'
       ]
     );
     }

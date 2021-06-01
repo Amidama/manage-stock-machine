@@ -10,6 +10,6 @@ class Tool extends Model
     use HasFactory;
 
     protected $fillable = [
-      'name', 'amount', 'unit'
+      'type', 'name', 'amount', 'unit'
     ];
 }

@@ -17,15 +17,18 @@ class CreateToolsSeeder extends Seeder
     $tools = [
       [
         'name' => 'nut',
+        'type' => 1,
         'amount' => '20',
         'unit' => 'item'
       ],
       [
         'name' => 'nail',
+        'type' => 2,
         'amount' => '40',
         'unit' => 'item'
       ],[
         'name' => 'wire',
+        'type' => 0,
         'amount' => '100',
         'unit' => 'meter'
       ],

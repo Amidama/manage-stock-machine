@@ -18,5 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/hardware/rent', [App\Http\Controllers\HardwareController::class, 'rent'])->name('hardware.rent');
-Route::post('/hardware/return', [App\Http\Controllers\HardwareController::class, 'return'])->name('hardware.return');
+Route::post('/hardware/stockin', [App\Http\Controllers\HardwareController::class, 'stockin'])->name('hardware.stockin');
+Route::post('/hardware/stockout', [App\Http\Controllers\HardwareController::class, 'stockout'])->name('hardware.stockout');

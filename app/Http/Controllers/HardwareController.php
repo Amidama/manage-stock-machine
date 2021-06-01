@@ -9,12 +9,12 @@ use Exception;
 
 class HardwareController extends Controller
 {
-  public function fill(Request $request)
+  public function stockout(Request $request)
   {
     try {
-      $tool = Tool::where('id', $request->tool_id)->first();
+      $tool = Tool::where('type', $request->Type)->first();
 
-      if ($tool == null) { throw new Exception('Tool Id is invalid!'); };
+      if ($tool == null) { throw new Exception('Type is invalid!'); };
       if ($tool->amount < $request->amount) { throw new Exception('Not enough tools!'); };
 
       $tool->decrement('amount', $request->amount);
@@ -22,14 +22,14 @@ class HardwareController extends Controller
       Order::create(
         [
           'tool_id' => $tool->id,
-          'amount' => $request->amount,
-          'status' => 'rent',
+          'amount' => $request->Quantity,
+          'status' => 'stock_in',
         ]
       );
       
       return response()->json([
           "status" => true,
-          "message" => 'Successfully rent tools!'
+          "message" => 'ok'
       ]);
     } catch (Exception $e) {
       return response()->json([
@@ -39,26 +39,26 @@ class HardwareController extends Controller
     }
   }
 
-  public function return(Request $request)
+  public function stockin(Request $request)
   {
     try {
-      $tool = Tool::where('id', $request->tool_id)->first();
+      $tool = Tool::where('type', $request->Type)->first();
 
-      if ($tool == null) { throw new Exception('Tool Id is invalid!'); };
+      if ($tool == null) { throw new Exception('Type is invalid!'); };
 
       $tool->increment('amount', $request->amount);
 
       Order::create(
         [
           'tool_id' => $tool->id,
-          'amount' => $request->amount,
-          'status' => 'return',
+          'amount' => $request->Quantity,
+          'status' => 'stock_out',
         ]
       );
       
       return response()->json([
           "status" => true,
-          "message" => 'Successfully return tools!'
+          "message" => 'ok'
       ]);
     } catch (Exception $e) {
       return response()->json([

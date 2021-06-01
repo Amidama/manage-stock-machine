@@ -31,7 +31,7 @@ class ToolController extends Controller
      */
     public function create()
     {
-        //
+      return view('tool.create'); 
     }
 
     /**
@@ -42,7 +42,15 @@ class ToolController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      Tool::create(
+        [
+          'type' => $request->type,
+          'name' => $request->name,
+          'amount' => $request->amount,
+          'unit' => $request->unit
+        ]
+      );
+      return redirect(route('tool.index'));
     }
 
     /**
@@ -75,11 +83,11 @@ class ToolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
       $tool = Tool::find($request->id);
-      $tool->card_id = strtoupper($request->name);
-      $tool->student_id = $request->amount;
+      $tool->name = strtoupper($request->name);
+      $tool->amount = $request->amount;
       $tool->save();
       return redirect(route('tool.index'));
     }

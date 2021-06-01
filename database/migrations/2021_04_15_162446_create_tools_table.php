@@ -15,6 +15,7 @@ class CreateToolsTable extends Migration
     {
         Schema::create('tools', function (Blueprint $table) {
             $table->increments('id', true);
+            $table->integer('type')->unique();;
             $table->string('name');
             $table->integer('amount');
             $table->string('unit');

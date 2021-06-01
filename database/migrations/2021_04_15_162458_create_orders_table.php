@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
           $table->increments('id', true);
           $table->integer('tool_id')->unsigned();
           $table->integer('amount')->default(0);
-          $table->enum('status', ['rent', 'return']);
+          $table->enum('status', ['stock_in', 'stock_out']);
           $table->timestamps();
       });
 

@@ -18,7 +18,6 @@
                         <thead class="thead-dark">
                             <tr align="center">
                             <th scope="col">#</th>
-                            <th scope="col">Tool ID</th>
                             <th scope="col">Tool Name</th>
                             <th scope="col">Amount</th>
                             <th scope="col">Status</th>
@@ -29,10 +28,9 @@
                             @foreach ($orders as $index=>$order)
                             <tr align="center">
                             <td scope="row">{{ ++$index }}</td>
-                            <td scope="row">{{$order->tool()->first()->id}}</td>
                             <td scope="row">{{$order->tool()->first()->name}}</td>
                             <td scope="row">{{$order->amount}}</td>
-                            <td scope="row">{{$order->status == 'rent' ? 'ยืม' : 'คืน'}}</td>
+                            <td scope="row">{{$order->status == 'stock_in' ? 'นำเข้า' : 'นำออก'}}</td>
                             <td>
                                 <form action="{{route('order.destroy')}}" method="post">
                                     @csrf
@@ -48,7 +46,6 @@
                         <tfoot class="thead-dark">
                             <tr align="center">
                             <th scope="col">#</th>
-                            <th scope="col">Tool ID</th>
                             <th scope="col">Tool Name</th>
                             <th scope="col">Amount</th>
                             <th scope="col">Status</th>

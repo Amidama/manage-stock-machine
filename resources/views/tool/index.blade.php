@@ -5,7 +5,18 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Tools</div>
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-9">
+                            Tools
+                        </div>
+                        <div class="col-md-3" align="right">
+                            <a href="{{route('tool.create')}}">
+                                <button type="button" class="btn btn-outline-primary">+ Add Tool</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -20,6 +31,7 @@
                             <tr align="center">
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
+                            <th scope="col">Type</th>
                             <th scope="col">Amount</th>
                             <th scope="col">Unit</th>
                             <th scope="col">Action</th>
@@ -30,6 +42,7 @@
                             <tr align="center">
                             <th scope="row">{{ ++$index }}</th>
                             <td>{{$tool->name}}</td>
+                            <td>{{$tool->type}}</td>
                             <td>{{$tool->amount}}</td>
                             <td>{{$tool->unit}}</td>
                             <td>
@@ -48,6 +61,7 @@
                             <tr align="center">
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
+                            <th scope="col">Type</th>
                             <th scope="col">Amount</th>
                             <th scope="col">Unit</th>
                             <th scope="col">Action</th>

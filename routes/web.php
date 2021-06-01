@@ -23,6 +23,8 @@ Auth::routes();
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/tools', [App\Http\Controllers\ToolController::class, 'index'])->name('tool.index');
+Route::get('/tool/create', [App\Http\Controllers\ToolController::class, 'create'])->name('tool.create');
+Route::post('/tool/store', [App\Http\Controllers\ToolController::class, 'store'])->name('tool.store');
 Route::get('/tool/edit/{id}', [App\Http\Controllers\ToolController::class, 'edit'])->name('tool.edit');
 Route::get('/orders', [App\Http\Controllers\OrderController::class, 'index'])->name('order.index');
 Route::post('/order/destroy', 'OrderController@destroy')->name('order.destroy');
