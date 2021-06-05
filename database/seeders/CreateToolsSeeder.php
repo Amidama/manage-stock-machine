@@ -18,18 +18,18 @@ class CreateToolsSeeder extends Seeder
       [
         'name' => 'nut',
         'type' => 1,
-        'amount' => '20',
-        'unit' => 'item'
+        'amount' => '0',
+        'unit' => 'kilogram'
       ],
       [
         'name' => 'nail',
         'type' => 2,
-        'amount' => '40',
-        'unit' => 'item'
+        'amount' => '1.5',
+        'unit' => 'kilogram'
       ],[
         'name' => 'wire',
         'type' => 0,
-        'amount' => '100',
+        'amount' => '5',
         'unit' => 'item'
       ],
     ];

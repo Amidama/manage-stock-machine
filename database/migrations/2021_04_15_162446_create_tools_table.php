@@ -17,7 +17,7 @@ class CreateToolsTable extends Migration
             $table->increments('id', true);
             $table->integer('type')->unique();;
             $table->string('name');
-            $table->integer('amount');
+            $table->float('amount', 10, 2)->default(0);
             $table->string('unit');
             $table->timestamps();
         });

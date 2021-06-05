@@ -16,14 +16,14 @@ class HardwareController extends Controller
       $tool = Tool::where('type', (int)$request->Type)->first();
 
       if ($tool == null) { throw new Exception('Type is invalid!'); };
-      if ($tool->amount < (int)$request->Quantity) { throw new Exception('Not enough tools!'); };
+      if ($tool->amount < (float)$request->Quantity) { throw new Exception('Not enough tools!'); };
 
       $tool->decrement('amount', $request->Quantity);
 
       Order::create(
         [
           'tool_id' => $tool->id,
-          'amount' => (int)$request->Quantity,
+          'amount' => (float)$request->Quantity,
           'status' => 'stock_out',
         ]
       );
@@ -48,12 +48,12 @@ class HardwareController extends Controller
 
       if ($tool == null) { throw new Exception('Type is invalid!'); };
 
-      $tool->increment('amount', (int)$request->Quantity);
+      $tool->increment('amount', (float)$request->Quantity);
 
       Order::create(
         [
           'tool_id' => $tool->id,
-          'amount' => (int)$request->Quantity,
+          'amount' => (float)$request->Quantity,
           'status' => 'stock_in',
         ]
       );

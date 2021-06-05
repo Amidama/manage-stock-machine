@@ -16,7 +16,7 @@ class CreateOrdersTable extends Migration
       Schema::create('orders', function (Blueprint $table) {
           $table->increments('id', true);
           $table->integer('tool_id')->unsigned();
-          $table->integer('amount')->default(0);
+          $table->float('amount', 10, 2)->default(0);
           $table->enum('status', ['stock_in', 'stock_out']);
           $table->timestamps();
       });
