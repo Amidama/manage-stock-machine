@@ -86,7 +86,7 @@ class ToolController extends Controller
     public function update(Request $request)
     {
       $tool = Tool::find($request->id);
-      $tool->name = strtoupper($request->name);
+      $tool->name = $request->name;
       $tool->amount = $request->amount;
       $tool->save();
       return redirect(route('tool.index'));
