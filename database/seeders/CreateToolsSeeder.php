@@ -30,7 +30,7 @@ class CreateToolsSeeder extends Seeder
         'name' => 'wire',
         'type' => 0,
         'amount' => '100',
-        'unit' => 'meter'
+        'unit' => 'item'
       ],
     ];
 

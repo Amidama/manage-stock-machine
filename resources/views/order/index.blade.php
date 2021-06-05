@@ -20,6 +20,7 @@
                             <th scope="col">#</th>
                             <th scope="col">Tool Name</th>
                             <th scope="col">Amount</th>
+                            <th scope="col">Unit</th>
                             <th scope="col">Status</th>
                             <th scope="col">Action</th>
                             </tr>
@@ -30,6 +31,7 @@
                             <td scope="row">{{ ++$index }}</td>
                             <td scope="row">{{$order->tool()->first()->name}}</td>
                             <td scope="row">{{$order->amount}}</td>
+                            <td scope="row">{{$order->tool->unit}}</td>
                             <td scope="row">{{$order->status == 'stock_in' ? 'นำเข้า' : 'นำออก'}}</td>
                             <td>
                                 <form action="{{route('order.destroy')}}" method="post">
@@ -48,6 +50,7 @@
                             <th scope="col">#</th>
                             <th scope="col">Tool Name</th>
                             <th scope="col">Amount</th>
+                            <th scope="col">Unit</th>
                             <th scope="col">Status</th>
                             <th scope="col">Action</th>
                             </tr>

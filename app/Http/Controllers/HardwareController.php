@@ -11,19 +11,20 @@ class HardwareController extends Controller
 {
   public function stockout(Request $request)
   {
+    error_log('stockout');
     try {
-      $tool = Tool::where('type', $request->Type)->first();
+      $tool = Tool::where('type', (int)$request->Type)->first();
 
       if ($tool == null) { throw new Exception('Type is invalid!'); };
-      if ($tool->amount < $request->amount) { throw new Exception('Not enough tools!'); };
+      if ($tool->amount < (int)$request->Quantity) { throw new Exception('Not enough tools!'); };
 
-      $tool->decrement('amount', $request->amount);
+      $tool->decrement('amount', $request->Quantity);
 
       Order::create(
         [
           'tool_id' => $tool->id,
-          'amount' => $request->Quantity,
-          'status' => 'stock_in',
+          'amount' => (int)$request->Quantity,
+          'status' => 'stock_out',
         ]
       );
       
@@ -41,18 +42,19 @@ class HardwareController extends Controller
 
   public function stockin(Request $request)
   {
+    error_log('stockin');
     try {
-      $tool = Tool::where('type', $request->Type)->first();
+      $tool = Tool::where('type', (int)$request->Type)->first();
 
       if ($tool == null) { throw new Exception('Type is invalid!'); };
 
-      $tool->increment('amount', $request->amount);
+      $tool->increment('amount', (int)$request->Quantity);
 
       Order::create(
         [
           'tool_id' => $tool->id,
-          'amount' => $request->Quantity,
-          'status' => 'stock_out',
+          'amount' => (int)$request->Quantity,
+          'status' => 'stock_in',
         ]
       );
       

@@ -21,7 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::get('/tools', [App\Http\Controllers\ToolController::class, 'index'])->name('tool.index');
 Route::get('/tool/create', [App\Http\Controllers\ToolController::class, 'create'])->name('tool.create');
 Route::post('/tool/store', [App\Http\Controllers\ToolController::class, 'store'])->name('tool.store');
