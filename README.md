@@ -4,6 +4,6 @@
 
 1. [Web&Backend](Web)
 
-![Hardware](/Img/Hardware.jpg){:height="50%" width="50%"}
+![Hardware](/Img/Hardware.jpg =350x250)
 
 2. [Hardware](Hardware)
