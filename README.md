@@ -4,6 +4,6 @@
 
 1. [Web&Backend](Web)
 
-![Hardware](/Img/Hardware.jpg =350x250)
+<img src="https://raw.githubusercontent.com/kittipat1413/manage-stock-machine/main/Img/Hardware.jpg" width="350" height="250">
 
 2. [Hardware](Hardware)
