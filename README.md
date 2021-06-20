@@ -63,6 +63,11 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 # Step by Step
 
+## Git command
+1. git pull
+2. git clone
+3. git push
+
 ## Create Web Application by Laravel
 1. Download composer.phar file from https://getcomposer.org/ (2.0.21 version)
 2. run ```php composer.phar create-project laravel/laravel example-app``` for create web application
